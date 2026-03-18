@@ -6,6 +6,7 @@ from io import BytesIO
 st.set_page_config(page_title="Historical Document App", layout="wide")
 st.title("Historical Document App")
 
+
 def extract_pdf_text(uploaded_file) -> str:
     try:
         pdf_bytes = BytesIO(uploaded_file.read())
@@ -20,6 +21,7 @@ def extract_pdf_text(uploaded_file) -> str:
         return "\n".join(text_parts).strip()
     except Exception as e:
         return f"[PDF extraction error: {e}]"
+
 
 uploaded_files = st.file_uploader(
     "Upload PDF or image files",
