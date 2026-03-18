@@ -3,7 +3,7 @@ import pandas as pd
 
 st.set_page_config(page_title="Historical Document App", layout="wide")
 st.title("Historical Document App")
-st.success("App deployed successfully.")
+st.success("App is live.")
 
 uploaded_files = st.file_uploader(
     "Upload PDF or image files",
@@ -12,8 +12,7 @@ uploaded_files = st.file_uploader(
 )
 
 if uploaded_files:
-    rows = [{"filename": f.name} for f in uploaded_files]
-    df = pd.DataFrame(rows)
+    df = pd.DataFrame([{"filename": f.name} for f in uploaded_files])
     st.subheader("Uploaded files")
     st.dataframe(df, use_container_width=True)
 else:
